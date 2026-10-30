@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<meta name="apple-mobile-web-app-title" content="냉장고 요리사">
+<meta name="theme-color" content="#5b86e6">
+<title>냉장고 요리사</title>
+<style>
+:root{
+  --bg:#fdf4ee; --card:#ffffff; --ink:#2a3048; --sub:#7d84a0; --line:#f1e1d5;
+  --main:#5b86e6; --main-d:#456fd0; --ok:#4a76de; --okbg:#e9f0ff; --warn:#dd8a5e; --warnbg:#ffeadc; --bad:#d96a7e; --badbg:#ffe7eb;
+  --apricot:#ffcfb0; --apricot-l:#fff0e5; --cobalt-l:#e3ecff;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#171a27;--card:#222638;--ink:#eef0f9;--sub:#a5abc5;--line:#343a52;--main:#7f9ff0;--main-d:#6a8be0;--ok:#93b2ff;--okbg:#202d50;--warnbg:#412c20;--badbg:#412130;--apricot-l:#3a2d2a;--cobalt-l:#26335a}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.5}
+.wrap{max-width:760px;margin:0 auto;padding:16px}
+header{padding:8px 0 14px}
+h1{margin:0;font-size:26px}
+h1 span{color:var(--main)}
+.tag{color:var(--sub);font-size:14px;margin-top:2px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:14px}
+.panel h2{font-size:15px;margin:0 0 10px}
+.row{display:flex;gap:8px}
+input[type=text]{flex:1;min-width:0;padding:12px 14px;border:1px solid var(--line);border-radius:12px;font-size:16px;background:var(--bg);color:var(--ink)}
+input[type=text]:focus{outline:2px solid var(--main);border-color:transparent}
+button{font-family:inherit;cursor:pointer}
+.btn{padding:12px 16px;border:0;border-radius:12px;background:var(--main);color:#fff;font-size:15px;font-weight:700}
+.btn:hover{background:var(--main-d)}
+.btn.ghost{background:transparent;color:var(--main);border:1px solid var(--main)}
+.hint{font-size:12.5px;color:var(--sub);margin-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:13.5px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.chip.mine{background:var(--main);border-color:var(--main);color:#fff;font-weight:600}
+.chip.mine button{background:none;border:0;color:#fff;font-size:15px;padding:0 0 0 2px;line-height:1}
+.chip.pick{cursor:pointer}
+.chip.pick.on{background:var(--okbg);border-color:var(--ok);color:var(--ok);font-weight:600}
+.chip.have{background:var(--okbg);color:var(--ok);border-color:transparent}
+.chip.miss{background:var(--badbg);color:var(--bad);border-color:transparent}
+.chip.opt{background:transparent;color:var(--sub);border-style:dashed}
+details summary{cursor:pointer;font-size:14px;font-weight:600;color:var(--main)}
+.group{margin-top:10px}
+.group b{font-size:12.5px;color:var(--sub);display:block}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:14px}
+.tab.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.opts{display:flex;flex-wrap:wrap;gap:12px;font-size:13.5px;color:var(--sub);margin-top:10px}
+.opts label{display:flex;align-items:center;gap:6px;cursor:pointer}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.links a{text-decoration:none;font-size:14px;padding:10px 14px;border-radius:12px}
+.a1{background:var(--main);color:#fff;font-weight:700}
+.a2{border:1px solid var(--main);color:var(--main)}
+.count{font-size:14px;color:var(--sub);margin:4px 2px 10px}
+.rec{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:10px}
+.rec-top{display:flex;gap:12px;align-items:flex-start}
+.emoji{font-size:32px;width:52px;height:52px;display:grid;place-items:center;background:var(--bg);border-radius:14px;flex:none}
+.rec h3{margin:0;font-size:17px}
+.meta{font-size:12.5px;color:var(--sub);margin-top:2px}
+.badge{margin-left:auto;font-size:12px;font-weight:700;padding:4px 9px;border-radius:999px;white-space:nowrap;flex:none}
+.b-ok{background:var(--okbg);color:var(--ok)}
+.b-warn{background:var(--warnbg);color:var(--warn)}
+.b-bad{background:var(--badbg);color:var(--bad)}
+.bar{height:6px;border-radius:6px;background:var(--line);margin:10px 0 8px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ok)}
+.rec .chips{margin-top:6px}
+.go{display:inline-block;margin-top:10px;text-decoration:none;font-size:14px;font-weight:700;color:var(--main)}
+.empty{text-align:center;color:var(--sub);padding:34px 10px}
+.foot{font-size:12px;color:var(--sub);text-align:center;margin:18px 0 8px}
+.views{display:flex;gap:8px;margin-bottom:12px}
+.views .tab{flex:1;text-align:center;padding:11px;font-weight:700;font-size:15px}
+.thumb{width:52px;height:52px;border-radius:14px;object-fit:cover;flex:none;background:var(--bg)}
+textarea{width:100%;min-height:110px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;font-size:14px;background:var(--bg);color:var(--ink);font-family:inherit}
+.imp ol{margin:8px 0 0;padding-left:20px;font-size:13.5px;color:var(--sub)}
+.imp li{margin-bottom:4px}
+.del{margin-left:10px;background:none;border:0;color:var(--sub);font-size:13px}
+/* ---- 테마: 연한 코발트 블루 + 살구 ---- */
+body{background:radial-gradient(800px 320px at 0% -5%,var(--cobalt-l) 0,transparent 70%),radial-gradient(700px 300px at 100% 0,var(--apricot-l) 0,transparent 70%),var(--bg);background-repeat:no-repeat}
+header{padding:20px 18px;border-radius:24px;background:linear-gradient(135deg,var(--cobalt-l) 0%,var(--apricot-l) 100%);margin-bottom:16px;border:1px solid var(--line)}
+h1{font-size:25px;letter-spacing:-.5px;display:flex;align-items:center;gap:10px}
+.logo{width:40px;height:40px;border-radius:12px;box-shadow:0 3px 10px rgba(91,134,230,.25)}
+h1 span{color:var(--main)}
+.panel,.rec{border-radius:20px;box-shadow:0 6px 20px rgba(91,134,230,.08)}
+.panel h2{font-size:15px;color:var(--ink)}
+.btn{background:linear-gradient(135deg,var(--main),#7ea2f0);box-shadow:0 4px 12px rgba(91,134,230,.28)}
+.btn:hover{background:var(--main-d)}
+.btn.ghost{background:transparent;box-shadow:none}
+.chip{background:var(--apricot-l);border-color:transparent}
+.chip.mine{background:var(--main);color:#fff}
+.chip.pick.on{background:var(--cobalt-l);border-color:var(--main);color:var(--main)}
+.chip.have{background:var(--okbg);color:var(--ok)}
+.chip.miss{background:var(--badbg);color:var(--bad)}
+.chip.opt{background:transparent}
+.tab{background:var(--card);border-color:var(--line)}
+.tab.on{background:var(--main);color:#fff;border-color:var(--main)}
+.emoji{background:var(--apricot-l)}
+.bar{background:var(--apricot-l)}
+.bar i{background:linear-gradient(90deg,var(--main),#8fb0f5)}
+.a1{background:linear-gradient(135deg,var(--main),#7ea2f0)}
+.a2{border-color:var(--main);color:var(--main)}
+.go,details summary{color:var(--main)}
+.b-ok{background:var(--okbg);color:var(--ok)}
+input[type=checkbox]{accent-color:var(--main)}
+input[type=text]{background:var(--apricot-l)}
+.ph{width:64px;height:64px;border-radius:16px;overflow:hidden;flex:none;background:var(--apricot-l);display:grid;place-items:center;font-size:30px;position:relative}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.thumb{width:64px;height:64px}
+.sect{font-size:14px;font-weight:700;color:var(--main);margin:14px 2px 8px}
+.tr{margin-left:auto;display:flex;gap:6px;align-items:center;flex:none}
+.tr .badge{margin-left:0}
+.star{background:none;border:0;font-size:22px;line-height:1;padding:2px;color:#d7c4b6}
+.star.on{color:#ffb24d}
+.basicbox{background:linear-gradient(135deg,var(--card),var(--apricot-l))}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1><img class="logo" src="data:image/png;base64,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" alt="" width="40" height="40"> 냉장고 <span>요리사</span></h1>
+    <div class="tag">가진 재료를 등록하면 만들 수 있는 요리를 찾아주고, 만개의레시피로 바로 연결해요.</div>
+  </header>
+
+  <section class="panel basicbox">
+    <h2>🧺 기본 재료 <span style="font-weight:400;color:var(--sub);font-size:13px">(집에 늘 있는 재료)</span></h2>
+    <div class="row">
+      <input id="binp" type="text" list="dl" placeholder="예: 밥 계란 대파 양파 마늘" autocomplete="off">
+      <button class="btn" id="badd">저장</button>
+    </div>
+    <div class="hint">여기 등록한 재료는 매번 다시 입력하지 않아도 항상 가지고 있는 것으로 계산해요.</div>
+    <div class="chips" id="basics"></div>
+    <details style="margin-top:10px">
+      <summary>자주 있는 재료에서 고르기</summary>
+      <div class="chips" id="bpicker"></div>
+    </details>
+  </section>
+
+  <section class="panel">
+    <h2>🥬 오늘 냉장고 재료</h2>
+    <div class="row">
+      <input id="inp" type="text" list="dl" placeholder="예: 계란 두부 대파 (띄어쓰기로 여러 개)" autocomplete="off">
+      <button class="btn" id="add">추가</button>
+    </div>
+    <datalist id="dl"></datalist>
+    <div class="hint">엔터 또는 [추가]. 달걀/계란, 파/대파처럼 비슷한 이름은 자동으로 맞춰줘요. 내용은 이 기기에 저장돼요.</div>
+    <div class="chips" id="mine"></div>
+
+    <details style="margin-top:12px">
+      <summary>자주 쓰는 재료에서 고르기</summary>
+      <div id="picker"></div>
+    </details>
+
+    <div class="opts">
+      <label><input type="checkbox" id="stapleOn" checked> 소금·간장·설탕 등 기본 양념은 있다고 치기</label>
+      <button class="tab" id="clear" style="margin-left:auto">전체 비우기</button>
+    </div>
+
+    <div class="links">
+      <a class="a1" id="goMine" href="#" target="_blank" rel="noopener">내 재료로 만개의레시피 검색 ↗</a>
+      <a class="a2" href="https://m.10000recipe.com/recipe/ingredients.html" target="_blank" rel="noopener">냉장고 파먹기 ↗</a>
+    </div>
+  </section>
+
+  <div class="views" id="views"></div>
+
+  <section class="panel imp" id="impPanel" style="display:none">
+    <div class="links" style="margin:0 0 12px">
+      <a class="a1" href="https://m.10000recipe.com/scrap/my.html" target="_blank" rel="noopener">내 스크랩 전체 보기 (72개) ↗</a>
+    </div>
+    <div class="hint" style="margin:-4px 0 12px">만개의레시피에 로그인된 상태의 내 스크랩 전체 화면이 열려요.</div>
+    <details>
+      <summary>스크랩 가져오기 / 추가하기</summary>
+      <div class="hint" style="margin-top:8px">만개의레시피 계정의 스크랩은 앱이 직접 읽을 수 없어서, 아래 방법으로 가져와요.</div>
+      <b style="display:block;margin-top:12px;font-size:14px">방법 1. 폰 크롬에서 자동으로 (전체 한 번에)</b>
+      <ol>
+        <li>아래 [코드 복사]를 누르세요.</li>
+        <li>크롬에서 만개의레시피에 로그인한 채로 <b>MY → 스크랩</b> 화면(전체)을 열고, 끝까지 스크롤해서 72개가 다 보이게 하세요.</li>
+        <li>주소창에 <b>javascript:</b> 를 직접 입력한 뒤, 복사한 코드에서 앞의 "javascript:"를 뺀 나머지를 이어 붙이고 이동하세요. (통째로 붙여넣으면 크롬이 앞부분을 지워요)</li>
+        <li>화면 위쪽에 나타난 글상자의 내용이 자동 복사돼요. 이 앱으로 돌아와 아래 칸에 붙여넣고 [가져오기]를 누르세요.</li>
+      </ol>
+      <div class="row" style="margin-top:8px"><button class="btn ghost" id="copyBm">코드 복사</button></div>
+      <b style="display:block;margin-top:14px;font-size:14px">방법 2. 직접 붙여넣기</b>
+      <div class="hint">한 줄에 하나씩: <code>요리 제목</code> 또는 <code>요리 제목 | 레시피 주소</code></div>
+      <textarea id="impText" placeholder="붙여넣기"></textarea>
+      <div class="row" style="margin-top:8px">
+        <button class="btn" id="doImp">가져오기</button>
+        <button class="btn ghost" id="clearScrap">스크랩 비우기</button>
+      </div>
+      <div class="hint" id="impMsg"></div>
+    </details>
+  </section>
+
+  <section>
+    <div class="toolbar" id="tb1">
+      <div class="tabs" id="tabs"></div>
+    </div>
+    <div class="toolbar">
+      <input type="text" id="q" placeholder="요리 이름 검색 (선택)" style="max-width:240px;padding:9px 12px;font-size:14px">
+      <div class="tabs" id="cats"></div>
+    </div>
+    <div class="count" id="count"></div>
+    <div id="list"></div>
+  </section>
+
+  <div class="foot">레시피 상세는 만개의레시피(10000recipe.com)에서 확인하세요. 이 앱은 만개의레시피와 무관한 개인용 도구입니다.</div>
+</div>
+
+<script>
+/* ---------- 데이터 ---------- */
+const STAPLES = ["소금","후추","설탕","간장","국간장","참기름","식용유","고춧가루","다진마늘","고추장","깨","올리고당","맛술","케첩","굴소스"];
+const ALIAS = {
+  "달걀":"계란","파":"대파","소세지":"소시지","참치":"참치캔","돼지":"돼지고기","소":"소고기","쇠고기":"소고기",
+  "닭고기":"닭","오뎅":"어묵","마요":"마요네즈","스파게티":"스파게티면","파스타면":"스파게티면","국수":"소면","국수면":"소면",
+  "양송이":"버섯","새송이":"버섯","표고":"버섯","표고버섯":"버섯","느타리":"버섯","팽이버섯":"버섯","배추김치":"김치","묵은지":"김치",
+  "빵":"식빵","스팸":"햄","애호박":"애호박","호박":"애호박","방울토마토":"토마토","대파":"대파","쪽파":"대파",
+  "마늘":"마늘","다진 마늘":"다진마늘","미원":"","후추가루":"후추","식용유":"식용유","라면사리":"라면","우동":"우동면"
+};
+/* [이름, 분류, 분(조리시간), 주재료[], 양념/기본[]] */
+const R = [
+ ["계란볶음밥","밥·덮밥",10,["밥","계란","대파"],["간장","식용유","소금","참기름"]],
+ ["김치볶음밥","밥·덮밥",15,["밥","김치","계란"],["식용유","참기름","고춧가루","설탕"]],
+ ["참치마요덮밥","밥·덮밥",10,["밥","참치캔","마요네즈","김"],["간장"]],
+ ["제육덮밥","밥·덮밥",20,["밥","돼지고기","양파","대파"],["고추장","고춧가루","간장","설탕","다진마늘","식용유"]],
+ ["소불고기덮밥","밥·덮밥",20,["밥","소고기","양파","대파"],["간장","설탕","참기름","후추","다진마늘"]],
+ ["카레라이스","밥·덮밥",30,["밥","감자","당근","양파","카레가루"],["식용유"]],
+ ["오므라이스","밥·덮밥",20,["밥","계란","양파","햄"],["케첩","식용유","소금"]],
+ ["비빔밥","밥·덮밥",30,["밥","시금치","콩나물","당근","계란"],["고추장","참기름","깨"]],
+ ["참치주먹밥","밥·덮밥",15,["밥","김","참치캔","마요네즈"],["참기름","깨"]],
+ ["달걀덮밥","밥·덮밥",10,["밥","계란","양파"],["간장","설탕","식용유"]],
+ ["참치김밥","밥·덮밥",40,["밥","김","참치캔","계란","단무지","당근"],["참기름","소금","마요네즈"]],
+ ["닭갈비덮밥","밥·덮밥",30,["밥","닭","양배추","양파","대파"],["고추장","고춧가루","간장","설탕","다진마늘"]],
+
+ ["김치찌개","찌개·국",30,["김치","돼지고기","두부","대파"],["고춧가루","다진마늘","식용유"]],
+ ["참치김치찌개","찌개·국",25,["참치캔","김치","양파","대파","두부"],["고춧가루","다진마늘"]],
+ ["된장찌개","찌개·국",25,["된장","두부","애호박","양파","대파"],["고춧가루","다진마늘"]],
+ ["순두부찌개","찌개·국",20,["순두부","계란","대파","양파"],["고춧가루","다진마늘","간장","식용유"]],
+ ["계란국","찌개·국",10,["계란","대파"],["국간장","소금","참기름"]],
+ ["콩나물국","찌개·국",15,["콩나물","대파"],["소금","다진마늘","국간장"]],
+ ["소고기미역국","찌개·국",40,["미역","소고기"],["국간장","참기름","다진마늘"]],
+ ["감자계란국","찌개·국",20,["감자","계란","양파","대파"],["소금","국간장"]],
+ ["어묵탕","찌개·국",20,["어묵","무","대파"],["국간장","소금"]],
+ ["부대찌개","찌개·국",30,["햄","소시지","김치","두부","대파","양파"],["고춧가루","다진마늘","고추장"]],
+ ["닭볶음탕","찌개·국",50,["닭","감자","당근","양파","대파"],["고춧가루","고추장","간장","설탕","다진마늘"]],
+ ["고등어조림","찌개·국",35,["고등어","무","양파","대파"],["고춧가루","간장","설탕","다진마늘"]],
+
+ ["계란말이","반찬",15,["계란","대파","당근"],["소금","식용유"]],
+ ["치즈계란말이","반찬",15,["계란","치즈","대파"],["소금","식용유"]],
+ ["계란찜","반찬",15,["계란","대파"],["소금","참기름"]],
+ ["두부조림","반찬",20,["두부","대파","양파"],["간장","고춧가루","설탕","참기름","다진마늘"]],
+ ["두부부침","반찬",15,["두부","계란"],["소금","식용유"]],
+ ["두부김치","반찬",20,["두부","김치","돼지고기"],["식용유","참기름"]],
+ ["감자채볶음","반찬",15,["감자","당근","양파"],["소금","식용유","후추"]],
+ ["감자조림","반찬",25,["감자","양파","당근"],["간장","설탕","올리고당","식용유"]],
+ ["애호박볶음","반찬",10,["애호박","양파","대파"],["소금","식용유","다진마늘"]],
+ ["콩나물무침","반찬",10,["콩나물","대파"],["소금","참기름","다진마늘","깨"]],
+ ["시금치나물","반찬",10,["시금치","대파"],["국간장","참기름","다진마늘","깨"]],
+ ["어묵볶음","반찬",15,["어묵","양파","당근"],["간장","설탕","식용유","올리고당"]],
+ ["멸치볶음","반찬",15,["멸치","마늘"],["간장","설탕","올리고당","식용유","깨"]],
+ ["소시지야채볶음","반찬",15,["소시지","양파","파프리카"],["케첩","식용유","설탕"]],
+ ["진미채무침","반찬",15,["진미채","마요네즈"],["고추장","설탕","올리고당","참기름"]],
+ ["가지볶음","반찬",15,["가지","양파","대파"],["간장","식용유","다진마늘","굴소스"]],
+ ["오이무침","반찬",10,["오이","양파"],["고춧가루","소금","설탕","식초","참기름"]],
+ ["무생채","반찬",15,["무","대파"],["고춧가루","설탕","소금","식초","다진마늘"]],
+ ["버섯볶음","반찬",10,["버섯","양파","대파"],["소금","식용유","후추","다진마늘"]],
+ ["토마토계란볶음","반찬",10,["토마토","계란","대파"],["소금","식용유","설탕"]],
+ ["양배추샐러드","반찬",10,["양배추","당근","마요네즈"],["설탕","소금","후추"]],
+ ["콘치즈","반찬",10,["옥수수","치즈","마요네즈"],["설탕"]],
+ ["고구마맛탕","반찬",25,["고구마"],["설탕","식용유","깨"]],
+
+ ["제육볶음","메인",25,["돼지고기","양파","대파"],["고추장","고춧가루","간장","설탕","다진마늘","식용유"]],
+ ["소불고기","메인",25,["소고기","양파","당근","대파","버섯"],["간장","설탕","참기름","후추","다진마늘"]],
+ ["돼지김치볶음","메인",20,["돼지고기","김치","양파","대파"],["식용유","고춧가루","설탕","참기름"]],
+ ["닭갈비","메인",35,["닭","양배추","고구마","양파","대파"],["고추장","고춧가루","간장","설탕","다진마늘"]],
+ ["오징어볶음","메인",20,["오징어","양파","양배추","대파","당근"],["고추장","고춧가루","간장","설탕","다진마늘"]],
+ ["삼겹살구이","메인",20,["삼겹살","상추","마늘"],["소금","후추","참기름"]],
+ ["닭가슴살샐러드","메인",15,["닭가슴살","양상추","토마토"],["소금","후추","올리브유"]],
+
+ ["라면","면·분식",10,["라면","계란","대파"],[]],
+ ["김치비빔국수","면·분식",15,["소면","김치","오이","계란"],["고추장","참기름","설탕","깨"]],
+ ["잔치국수","면·분식",25,["소면","애호박","계란","당근","대파"],["국간장","소금","다진마늘"]],
+ ["볶음우동","면·분식",15,["우동면","양파","양배추","당근"],["간장","굴소스","식용유"]],
+ ["토마토파스타","면·분식",20,["스파게티면","토마토소스","양파","마늘","베이컨"],["소금","후추","올리브유"]],
+ ["까르보나라","면·분식",20,["스파게티면","베이컨","계란","마늘","생크림"],["소금","후추"]],
+ ["떡볶이","면·분식",20,["떡","어묵","대파"],["고추장","고춧가루","설탕","간장"]],
+ ["간장떡볶이","면·분식",20,["떡","양파","당근","대파"],["간장","설탕","참기름","식용유"]],
+ ["토스트","면·분식",10,["식빵","계란","치즈","햄"],["케첩","설탕","식용유"]],
+ ["계란샌드위치","면·분식",15,["식빵","계란","마요네즈"],["소금","후추","설탕"]],
+
+ ["감자전","전·부침",20,["감자","양파"],["소금","식용유"]],
+ ["김치전","전·부침",20,["김치","부침가루","양파"],["식용유"]],
+ ["부추전","전·부침",20,["부추","부침가루","양파"],["식용유","소금"]],
+ ["애호박전","전·부침",20,["애호박","계란","부침가루"],["소금","식용유"]],
+ ["참치전","전·부침",20,["참치캔","계란","양파","당근"],["소금","식용유","후추"]]
+];
+const EMOJI = {"밥·덮밥":"🍚","찌개·국":"🍲","반찬":"🥗","메인":"🍖","면·분식":"🍜","전·부침":"🥞"};
+const CATS = ["전체","밥·덮밥","찌개·국","반찬","메인","면·분식","전·부침"];
+const COMMON = {
+  "채소":["대파","양파","마늘","당근","감자","고구마","애호박","오이","시금치","콩나물","양배추","무","버섯","토마토","가지","부추","파프리카","상추","옥수수"],
+  "고기·해산물":["돼지고기","소고기","닭","닭가슴살","삼겹살","베이컨","햄","소시지","오징어","고등어","멸치","어묵","참치캔","진미채"],
+  "유제품·가공":["계란","두부","순두부","김치","치즈","우유","생크림","마요네즈","식빵","밥","라면","소면","스파게티면","떡","김","미역","된장","부침가루","카레가루"]
+};
+
+/* ---------- 상태 ---------- */
+const KEY = "fridge-chef-v1";
+let state = { items:[], stapleOn:true, tab:"all", cat:"전체", q:"", view:"rec", basics:[], favs:[] };
+const BASIC_PICK = ["밥","계란","대파","양파","마늘","김치","두부","감자","당근","김","라면","식빵","우유","치즈"];
+const owned = () => [...new Set([...state.basics, ...state.items])];
+const isFav = k => state.favs.includes(k) ? 1 : 0;
+const starBtn = k => `<button class="star ${isFav(k)?"on":""}" data-fav="${esc(k)}" aria-label="자주 보는 레시피">${isFav(k)?"★":"☆"}</button>`;
+function toggleFav(k){ state.favs = isFav(k) ? state.favs.filter(x=>x!==k) : [k,...state.favs]; save(); render(); }
+function favSplit(rows, keyFn, cardFn){
+  const f = rows.filter(r=>isFav(keyFn(r))), o = rows.filter(r=>!isFav(keyFn(r)));
+  let h = "";
+  if (f.length){ h += `<div class="sect">⭐ 자주 보는 레시피</div>` + f.map(cardFn).join(""); if (o.length) h += `<div class="sect">그 외</div>`; }
+  return h + o.map(cardFn).join("");
+}
+function addBasics(text){
+  text.split(/[\s,，、]+/).map(norm).filter(Boolean).forEach(n=>{ if(!state.basics.includes(n)) state.basics.push(n); });
+  save(); render();
+}
+function removeBasic(n){ state.basics = state.basics.filter(x=>x!==n); save(); render(); }
+/* 내 스크랩 (처음엔 화면에서 확인된 6개) */
+const SKEY = "fridge-chef-scraps-v1";
+const SEED = [
+ {cat:"토마토소스",title:"홈메이드 토마토소스 만들기 tomato sauce",rating:"4.8",cnt:"36",author:"요리다나와",serv:"1인분",time:"15분"},
+ {cat:"김밥",title:"눈물나게 맛있는 김밥 만들기",rating:"4.9",cnt:"31",author:"쿠킹숙",serv:"4인분",time:"30분"},
+ {cat:"깍두기볶음밥",title:"집밥백선생 레시피 실패한 깍두기 되살리는 초간단 깍…",rating:"4.9",cnt:"110",author:"yejib1112",serv:"2인분",time:"15분"},
+ {cat:"청국장찌개",title:"청국장찌개 황금 레시피",rating:"4.9",cnt:"268",author:"꽃라라",serv:"3인분",time:"60분"},
+ {cat:"무조림",title:"밑반찬 무조림",rating:"4.8",cnt:"120",author:"돌하우스",serv:"2인분",time:"30분"},
+ {cat:"고구마맛탕",title:"고구마맛탕 만들기 튀기지…",rating:"",cnt:"",author:"",serv:"",time:""}
+];
+let scraps = SEED.slice();
+try { const s = JSON.parse(localStorage.getItem(SKEY)||"null"); if (Array.isArray(s)) scraps = s; } catch(e){}
+function saveScraps(){ try{ localStorage.setItem(SKEY, JSON.stringify(scraps)); }catch(e){} }
+const BM = `javascript:(function(){var m={};document.querySelectorAll('a[href*="/recipe/"]').forEach(function(a){var x=(a.getAttribute('href')||'').match(/\\/recipe\\/(\\d+)/);if(!x)return;var id=x[1];var o=m[id]||(m[id]={url:'https://m.10000recipe.com/recipe/'+id,title:'',img:''});var t=(a.innerText||'').trim().split('\\n')[0];if(t.length>o.title.length)o.title=t;var i=a.querySelector('img');if(i&&!o.img)o.img=i.src;});var r=Object.keys(m).map(function(k){return m[k]}).filter(function(o){return o.title});var s=JSON.stringify(r);var ta=document.createElement('textarea');ta.value=s;ta.style.cssText='position:fixed;top:0;left:0;width:100%;height:40%;z-index:99999';document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e){}alert(r.length+'개 레시피를 찾았어요. 글상자 내용을 복사해서 앱에 붙여넣으세요.');})()`;
+try { const s = JSON.parse(localStorage.getItem(KEY)||"null"); if (s) { state.items = s.items||[]; state.stapleOn = s.stapleOn!==false; state.basics = s.basics||[]; state.favs = s.favs||[]; } } catch(e){}
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify({items:state.items, stapleOn:state.stapleOn, basics:state.basics, favs:state.favs})); }catch(e){} }
+
+const norm = s => { s = s.trim(); return (s in ALIAS) ? ALIAS[s] : s; };
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const SEARCH = "https://m.10000recipe.com/recipe/list.html?q=";
+
+
+/* ---------- 만개의레시피 사진 ---------- */
+const IMGB = "https://recipe1.ezmember.co.kr/cache/recipe/";
+/* 만개의레시피 페이지에서 확인한 사진 (이름 → [레시피번호, 사진경로]) */
+const KNOWN = {
+ "계란찜":["6872350","2017/07/06/c807784ab41809f624a6a4a7466cd5bd1_m.jpg"],
+ "감자채볶음":["4007561","2015/09/03/7b212e9f49ebe4a5fd27507ce388e7d81_m.jpg"],
+ "김치찌개":["1785098","2015/08/25/a01d013a6b6f9d526c43f4659db2cd61_m.jpg"],
+ "제육볶음":["6845428","2016/03/27/3b2359adaaaff4853eecfa07a04ac3a71_m.jpg"],
+ "소불고기":["6879215","2017/11/07/ca8c24608189aaf9d376f14b3f3be57c1_m.jpg"],
+ "된장찌개":["6850626","2016/06/08/24c312f82313faaf1e4d5ef98761efcb1_m.jpg"],
+ "무생채":["6893285","2018/07/29/52046ea43391de69233f594b0b52bb311_m.JPG"],
+ "소고기미역국":["6873683","2017/07/28/860484b80033e84a3584a366ae903a0d1_m.jpg"],
+ "콩나물무침":["6867256","2017/03/22/93dd58483544283879abe07cb3ca75961_m.jpg"],
+ "오징어볶음":["6903507","2019/01/04/518d5bf35102aa51bf58078f7a25dc751_m.jpg"],
+ "오이무침":["6897261","2018/10/06/b1b388113cd0d3c3c3ce3838f838bfef1_m.jpg"],
+ "두부조림":["6891526","2018/06/26/b423d8a43b45d4f8dd820f82fb37a9461_m.jpg"],
+ "시금치나물":["6840346","2015/12/21/4b18778769ccdab54b57d7ddbc753f501_m.jpg"],
+ "간장떡볶이":["6887456","2018/04/17/fda558bf61351f135a05a2c9a71a49b91_m.jpg"],
+ "고등어조림":["6857726","2016/09/30/4b7bee7dc34590afdb081fd8e53775f11_m.jpg"],
+ "멸치볶음":["4061182","2015/04/22/a62ce71875c12448673b3acb7335f1421_m.jpg"],
+ "어묵볶음":["6875498","2017/08/28/5b1e46c4d5173ac4a53b28a4cfabaeaf1_m.jpg"],
+ "토마토계란볶음":["6938535","2020/08/06/2777d9a9db91ca6c9d839abb24ab05b51_m.jpg"],
+ "감자계란국":["7029194","2024/06/26/a41a276d2f96b4d00e24c14b8a81d1661_m.jpg"]
+};
+const IKEY = "fridge-chef-img-v1";
+let imgCache = {};
+try { imgCache = JSON.parse(localStorage.getItem(IKEY)||"{}") || {}; } catch(e){}
+function saveImgCache(){ try{ localStorage.setItem(IKEY, JSON.stringify(imgCache)); }catch(e){} }
+const imgFail = new Set();
+function photoOf(name){
+  if (KNOWN[name]) return {id:KNOWN[name][0], img:IMGB+KNOWN[name][1]};
+  return imgCache[name] || null;
+}
+function photoBox(name, fallback, direct){
+  const p = direct ? {img:direct} : photoOf(name);
+  const im = p && p.img ? `<img src="${esc(p.img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : "";
+  return `<div class="ph" data-ph="${esc(name)}"${direct?' data-direct="1"':''}>${fallback}${im}</div>`;
+}
+const PROXIES = [
+  u=>"https://api.allorigins.win/raw?url="+encodeURIComponent(u),
+  u=>"https://corsproxy.io/?"+encodeURIComponent(u)
+];
+async function lookupPhoto(name){
+  const target = "https://m.10000recipe.com/recipe/list.html?q="+encodeURIComponent(name);
+  for (const mk of PROXIES){
+    try{
+      const ctl = new AbortController(); const t = setTimeout(()=>ctl.abort(), 8000);
+      const res = await fetch(mk(target), {signal:ctl.signal}); clearTimeout(t);
+      if (!res.ok) continue;
+      const html = await res.text();
+      const m = html.match(/\/recipe\/(\d+)[\s\S]{0,600}?(https?:)?\/\/recipe1\.ezmember\.co\.kr\/cache\/recipe\/[^"')\s]+?\.(?:jpe?g|png)/i)
+             || html.match(/(https?:)?\/\/recipe1\.ezmember\.co\.kr\/cache\/recipe\/[^"')\s]+?\.(?:jpe?g|png)/i);
+      if (m){
+        const img = (m[0].match(/(https?:)?\/\/recipe1\.ezmember\.co\.kr\/[^"')\s]+/i)||[])[0];
+        const id = (m[1] && /^\d+$/.test(m[1])) ? m[1] : "";
+        if (img) return {id, img: img.startsWith("//") ? "https:"+img : img};
+      }
+    }catch(e){}
+  }
+  return null;
+}
+let imgBusy = 0; const imgQueue = [];
+function fillPhotos(){
+  document.querySelectorAll(".ph[data-ph]:not([data-direct])").forEach(el=>{
+    const name = el.dataset.ph;
+    if (el.querySelector("img") || photoOf(name) || imgFail.has(name) || imgQueue.includes(name)) return;
+    imgQueue.push(name);
+  });
+  pumpImg();
+}
+function pumpImg(){
+  while (imgBusy < 3 && imgQueue.length){
+    const name = imgQueue.shift(); imgBusy++;
+    lookupPhoto(name).then(r=>{
+      if (r){ imgCache[name] = r; saveImgCache();
+        document.querySelectorAll(".ph[data-ph]").forEach(el=>{ if (el.dataset.ph===name && !el.querySelector("img")) el.insertAdjacentHTML("beforeend", `<img src="${esc(r.img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`); });
+        document.querySelectorAll('a.go[data-pn]').forEach(a=>{ if (a.dataset.pn===name && r.id){ a.href="https://m.10000recipe.com/recipe/"+r.id; a.textContent=`만개의레시피에서 "${name}" 열기 ↗`; } });
+      } else imgFail.add(name);
+    }).finally(()=>{ imgBusy--; pumpImg(); });
+  }
+}
+function recLink(name){ const p = photoOf(name); return p && p.id ? "https://m.10000recipe.com/recipe/"+p.id : SEARCH+encodeURIComponent(name); }
+
+/* ---------- 재료 등록 ---------- */
+function addItems(text){
+  text.split(/[\s,，、]+/).map(norm).filter(Boolean).forEach(n=>{ if(!state.items.includes(n)) state.items.push(n); });
+  save(); render();
+}
+function removeItem(n){ state.items = state.items.filter(x=>x!==n); save(); render(); }
+function toggleItem(n){ state.items.includes(n) ? removeItem(n) : addItems(n); }
+
+/* ---------- 추천 계산 ---------- */
+function compute(){
+  const own = new Set(owned());
+  const have = new Set(own);
+  if (state.stapleOn) STAPLES.forEach(s=>have.add(s));
+  const out = [];
+  for (const [name,cat,time,main,sea] of R){
+    const need = state.stapleOn ? main : main.concat(sea);
+    const optional = state.stapleOn ? sea : [];
+    const got = need.filter(i=>have.has(i));
+    const miss = need.filter(i=>!have.has(i));
+    const mainGot = main.filter(i=>own.has(i)).length;
+    out.push({name,cat,time,need,optional,got,miss,mainGot,ratio: need.length? got.length/need.length : 1});
+  }
+  return out;
+}
+
+/* ---------- 렌더 ---------- */
+function render(){
+  // 내 재료 칩
+  $("mine").innerHTML = state.items.length
+    ? state.items.map(n=>`<span class="chip mine">${esc(n)}<button data-rm="${esc(n)}" aria-label="삭제">×</button></span>`).join("")
+    : `<span class="hint">아직 등록한 재료가 없어요.</span>`;
+  $("stapleOn").checked = state.stapleOn;
+  $("basics").innerHTML = state.basics.length
+    ? state.basics.map(n=>`<span class="chip mine">${esc(n)}<button data-rmb="${esc(n)}" aria-label="삭제">×</button></span>`).join("")
+    : `<span class="hint">아직 등록한 기본 재료가 없어요.</span>`;
+  $("bpicker").innerHTML = BASIC_PICK.map(n=>`<button class="chip pick ${state.basics.includes(n)?"on":""}" data-bpick="${esc(n)}">${esc(n)}</button>`).join("");
+
+  // 피커
+  $("picker").innerHTML = Object.entries(COMMON).map(([g,arr])=>
+    `<div class="group"><b>${g}</b><div class="chips">${arr.map(n=>`<button class="chip pick ${state.items.includes(n)?"on":""}" data-pick="${esc(n)}">${esc(n)}</button>`).join("")}</div></div>`).join("");
+
+  // 링크
+  const q = [...state.items, ...state.basics].slice(0,5).join(" ");
+  $("goMine").href = q ? SEARCH+encodeURIComponent(q) : "https://m.10000recipe.com/recipe/ingredients.html";
+
+  // 보기 전환
+  $("views").innerHTML = [["rec","🍽️ 추천 요리"],["scrap",`📌 내 스크랩 ${scraps.length}`]]
+    .map(([k,l])=>`<button class="tab ${state.view===k?"on":""}" data-view="${k}">${l}</button>`).join("");
+  $("impPanel").style.display = state.view==="scrap" ? "" : "none";
+  $("tb1").style.display = state.view==="scrap" ? "none" : "";
+  $("cats").style.display = state.view==="scrap" ? "none" : "";
+  if (state.view==="scrap"){ renderScraps(); return; }
+
+  // 데이터
+  const all = compute();
+  let rows = all.filter(r=>r.mainGot>0 || isFav("r:"+r.name));
+  const canAll = rows.filter(r=>r.miss.length===0).length;
+  const near = rows.filter(r=>r.miss.length>0 && r.miss.length<=2).length;
+
+  $("tabs").innerHTML = [
+    ["all",`추천 전체 ${rows.length}`],["can",`바로 가능 ${canAll}`],["near",`1~2개 부족 ${near}`]
+  ].map(([k,l])=>`<button class="tab ${state.tab===k?"on":""}" data-tab="${k}">${l}</button>`).join("");
+  $("cats").innerHTML = CATS.map(c=>`<button class="tab ${state.cat===c?"on":""}" data-cat="${c}">${c}</button>`).join("");
+
+  if (state.tab==="can") rows = rows.filter(r=>r.miss.length===0);
+  if (state.tab==="near") rows = rows.filter(r=>r.miss.length>0 && r.miss.length<=2);
+  if (state.cat!=="전체") rows = rows.filter(r=>r.cat===state.cat);
+  if (state.q) rows = rows.filter(r=>r.name.includes(state.q));
+
+  rows.sort((a,b)=> (isFav("r:"+b.name)-isFav("r:"+a.name)) || a.miss.length-b.miss.length || b.ratio-a.ratio || b.mainGot-a.mainGot || a.time-b.time);
+
+  if (!owned().length && !rows.length){
+    $("count").textContent = "";
+    $("list").innerHTML = `<div class="empty">👆 재료를 등록하면<br>만들 수 있는 요리가 여기에 나타나요.</div>`;
+    return;
+  }
+  $("count").textContent = `${rows.length}개의 요리를 찾았어요`;
+  if (!rows.length){ $("list").innerHTML = `<div class="empty">조건에 맞는 요리가 없어요.<br>재료를 더 추가하거나 필터를 바꿔보세요.</div>`; return; }
+
+  $("list").innerHTML = favSplit(rows, r=>"r:"+r.name, r=>{
+    const ok = r.miss.length===0;
+    const badge = ok ? `<span class="badge b-ok">바로 가능!</span>` : r.miss.length<=2 ? `<span class="badge b-warn">${r.miss.length}개 부족</span>` : `<span class="badge b-bad">${r.miss.length}개 부족</span>`;
+    return `<article class="rec">
+      <div class="rec-top">
+        ${photoBox(r.name, EMOJI[r.cat])}
+        <div><h3>${esc(r.name)}</h3><div class="meta">${r.cat} · 약 ${r.time}분</div></div>
+        <div class="tr">${badge}${starBtn("r:"+r.name)}</div>
+      </div>
+      <div class="bar"><i style="width:${Math.round(r.ratio*100)}%"></i></div>
+      <div class="chips">
+        ${r.got.map(i=>`<span class="chip have">✓ ${esc(i)}</span>`).join("")}
+        ${r.miss.map(i=>`<span class="chip miss">✗ ${esc(i)}</span>`).join("")}
+        ${r.optional.map(i=>`<span class="chip opt">${esc(i)}</span>`).join("")}
+      </div>
+      <a class="go" data-pn="${esc(r.name)}" href="${esc(recLink(r.name))}" target="_blank" rel="noopener">만개의레시피에서 "${esc(r.name)}" 보기 ↗</a>
+    </article>`;
+  });
+}
+
+/* ---------- 스크랩 ---------- */
+function scrapLink(s){
+  if (s.url) return s.url;
+  const t = /…|\.\.\.$/.test(s.title) ? (s.cat||s.title) : s.title;
+  return SEARCH + encodeURIComponent(t);
+}
+function renderScraps(){
+  const comp = new Map(compute().map(x=>[x.name,x]));
+  let rows = scraps.map((s,idx)=>{
+    const text = (s.cat||"")+" "+s.title;
+    const c = comp.get(s.cat) || R.map(r=>comp.get(r[0])).find(x=>x && x.name.length>=3 && text.includes(x.name));
+    let rank = 9, badge = "", detail = "";
+    if (c && owned().length){
+      if (c.miss.length===0){ rank=0; badge=`<span class="badge b-ok">바로 가능!</span>`; }
+      else { rank=1+c.miss.length; badge=`<span class="badge ${c.miss.length<=2?"b-warn":"b-bad"}">${c.miss.length}개 부족</span>`; detail=c.got.map(i=>`<span class="chip have">✓ ${esc(i)}</span>`).join("")+c.miss.map(i=>`<span class="chip miss">✗ ${esc(i)}</span>`).join(""); }
+      if (c.miss.length===0) detail=c.got.map(i=>`<span class="chip have">✓ ${esc(i)}</span>`).join("");
+    } else if (owned().length){
+      const hit = owned().filter(i=>i.length>=2 && text.includes(i));
+      if (hit.length){ rank=5; detail=hit.map(i=>`<span class="chip have">✓ ${esc(i)}</span>`).join(""); badge=`<span class="badge b-warn">제목에 재료 ${hit.length}개</span>`; }
+    }
+    return {s,idx,rank,badge,detail};
+  });
+  if (state.q) rows = rows.filter(r=>(r.s.title+" "+(r.s.cat||"")).includes(state.q));
+  const fk = x=>"s:"+(x.s.url||x.s.title);
+  rows.sort((a,b)=> (isFav(fk(b))-isFav(fk(a))) || (owned().length ? a.rank-b.rank : 0) || a.idx-b.idx);
+  $("count").textContent = `스크랩 ${rows.length}개` + (owned().length ? " · 내 재료와 맞는 순서로 정렬" : " · 재료를 등록하면 만들 수 있는 순서로 정렬돼요");
+  if (!rows.length){ $("list").innerHTML = `<div class="empty">스크랩이 없어요.<br>위의 [스크랩 가져오기]로 추가해 보세요.</div>`; return; }
+  $("list").innerHTML = favSplit(rows, fk, ({s,idx,badge,detail})=>{
+    const meta = [s.cat, s.author, s.rating?`★${s.rating}${s.cnt?`(${s.cnt})`:""}`:"", s.serv, s.time].filter(Boolean).join(" · ");
+    const pk = s.cat || s.title;
+    const pic = s.img ? photoBox(pk, "📌", s.img) : photoBox(pk, "📌");
+    return `<article class="rec">
+      <div class="rec-top">${pic}
+        <div><h3>${esc(s.title)}</h3><div class="meta">${esc(meta)}</div></div><div class="tr">${badge}${starBtn("s:"+(s.url||s.title))}</div>
+      </div>
+      ${detail?`<div class="chips">${detail}</div>`:""}
+      <a class="go" ${s.url||s.img?"":`data-pn="${esc(s.cat||s.title)}" `}href="${esc(scrapLink(s))}" target="_blank" rel="noopener">${s.url?"만개의레시피에서 열기 ↗":"만개의레시피에서 검색 ↗"}</a>
+      <button class="del" data-del="${idx}">삭제</button>
+    </article>`;
+  });
+}
+function importScraps(text){
+  text = text.trim(); const found = [];
+  if (!text) return 0;
+  const fixUrl = u => u ? (u.startsWith("/") ? "https://m.10000recipe.com"+u : u) : "";
+  if (/^[\[{]/.test(text)){
+    try { let a = JSON.parse(text); if(!Array.isArray(a)) a=[a];
+      a.forEach(o=>{ if(o && o.title) found.push({title:String(o.title),cat:o.cat||"",url:fixUrl(o.url),img:o.img||"",rating:o.rating||"",cnt:o.cnt||"",author:o.author||"",serv:o.serv||"",time:o.time||""}); });
+    } catch(e){ return -1; }
+  } else {
+    text.split(/\n+/).forEach(line=>{
+      line=line.trim(); if(!line) return;
+      const m = line.match(/10000recipe\.com\/recipe\/(\d+)/);
+      let title=line, url="";
+      if (line.includes("|")){ const p=line.split("|"); title=p[0].trim(); url=(p[1]||"").trim(); }
+      else if (m){ title=line.replace(/https?:\/\/\S+/,"").trim(); url=line.match(/https?:\/\/\S+/)[0]; }
+      if (m && !url) url=line;
+      if (!title) title = m ? "레시피 #"+m[1] : "";
+      if (title) found.push({title,cat:"",url:fixUrl(url),img:"",rating:"",cnt:"",author:"",serv:"",time:""});
+    });
+  }
+  let added=0;
+  found.forEach(f=>{
+    const dup = scraps.find(s=> (f.url && s.url===f.url) || s.title===f.title || (s.cat && s.cat===f.title));
+    if (dup){ if(f.url && !dup.url) dup.url=f.url; if(f.img && !dup.img) dup.img=f.img; }
+    else { scraps.push(f); added++; }
+  });
+  saveScraps(); return added;
+}
+
+const _render = render;
+render = function(){ _render(); fillPhotos(); };
+
+/* ---------- 이벤트 ---------- */
+$("copyBm").onclick = async ()=>{
+  try { await navigator.clipboard.writeText(BM); $("impMsg").textContent="코드를 복사했어요."; }
+  catch(e){ $("impText").value = BM; $("impText").select(); $("impMsg").textContent="아래 칸의 코드를 직접 복사하세요."; }
+};
+$("doImp").onclick = ()=>{
+  const n = importScraps($("impText").value);
+  $("impMsg").textContent = n===-1 ? "붙여넣은 내용을 읽지 못했어요. 형식을 확인해 주세요." : n===0 ? "새로 추가된 스크랩이 없어요." : `${n}개를 추가했어요.`;
+  if (n>0) $("impText").value="";
+  render();
+};
+$("clearScrap").onclick = ()=>{ if(confirm("앱에 저장된 스크랩 목록을 모두 지울까요? (만개의레시피 계정의 스크랩은 그대로예요)")){ scraps=[]; saveScraps(); render(); } };
+$("add").onclick = ()=>{ addItems($("inp").value); $("inp").value=""; $("inp").focus(); };
+$("badd").onclick = ()=>{ addBasics($("binp").value); $("binp").value=""; $("binp").focus(); };
+$("binp").addEventListener("keydown",e=>{ if(e.key==="Enter" && !e.isComposing){ e.preventDefault(); $("badd").click(); } });
+$("inp").addEventListener("keydown",e=>{ if(e.key==="Enter" && !e.isComposing){ e.preventDefault(); $("add").click(); } });
+$("stapleOn").onchange = e=>{ state.stapleOn = e.target.checked; save(); render(); };
+$("clear").onclick = ()=>{ if(!state.items.length || confirm("등록한 재료를 모두 지울까요?")){ state.items=[]; save(); render(); } };
+$("q").oninput = e=>{ state.q = e.target.value.trim(); render(); };
+document.addEventListener("click",e=>{
+  const t = e.target.closest("[data-rm],[data-pick],[data-tab],[data-cat],[data-view],[data-del],[data-fav],[data-rmb],[data-bpick]"); if(!t) return;
+  if (t.dataset.fav) toggleFav(t.dataset.fav);
+  else if (t.dataset.rmb) removeBasic(t.dataset.rmb);
+  else if (t.dataset.bpick) (state.basics.includes(t.dataset.bpick) ? removeBasic(t.dataset.bpick) : addBasics(t.dataset.bpick));
+  else if (t.dataset.view){ state.view=t.dataset.view; render(); }
+  else if (t.dataset.del){ scraps.splice(+t.dataset.del,1); saveScraps(); render(); }
+  else if (t.dataset.rm) removeItem(t.dataset.rm);
+  else if (t.dataset.pick) toggleItem(t.dataset.pick);
+  else if (t.dataset.tab){ state.tab=t.dataset.tab; render(); }
+  else if (t.dataset.cat){ state.cat=t.dataset.cat; render(); }
+});
+
+// 자동완성 목록
+(function(){
+  const s = new Set(); R.forEach(r=>r[3].forEach(i=>s.add(i)));
+  $("dl").innerHTML = [...s].sort().map(i=>`<option value="${esc(i)}">`).join("");
+})();
+render();
+</script>
+</body>
+</html>
