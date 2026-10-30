@@ -427,12 +427,24 @@ function pumpImg(){
     lookupPhoto(name).then(r=>{
       if (r){ imgCache[name] = r; saveImgCache();
         document.querySelectorAll(".ph[data-ph]").forEach(el=>{ if (el.dataset.ph===name && !el.querySelector("img")) el.insertAdjacentHTML("beforeend", `<img src="${esc(r.img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`); });
-        document.querySelectorAll('a.go[data-pn]').forEach(a=>{ if (a.dataset.pn===name && r.id){ a.href="https://m.10000recipe.com/recipe/"+r.id; a.textContent=`만개의레시피에서 "${name}" 열기 ↗`; } });
+        document.querySelectorAll('a.go[data-pn]').forEach(a=>{ if (a.dataset.pn===name && r.id && !myScrapFor(name)){ a.href="https://m.10000recipe.com/recipe/"+r.id; a.textContent=`만개의레시피에서 "${name}" 열기 ↗`; } });
       } else imgFail.add(name);
     }).finally(()=>{ imgBusy--; pumpImg(); });
   }
 }
-function recLink(name){ const p = photoOf(name); return p && p.id ? "https://m.10000recipe.com/recipe/"+p.id : SEARCH+encodeURIComponent(name); }
+function myScrapFor(name){
+  return scraps.find(s=> s.url && (((s.cat||"")===name) || s.title.includes(name))) || null;
+}
+function recLink(name){
+  const m = myScrapFor(name); if (m) return m.url;
+  const p = photoOf(name); if (p && p.id) return "https://m.10000recipe.com/recipe/"+p.id;
+  return SEARCH+encodeURIComponent(name)+"&order=reco";
+}
+function recLabel(name){
+  if (myScrapFor(name)) return `내가 스크랩한 "${name}" 레시피 열기 ↗`;
+  const p = photoOf(name);
+  return (p && p.id) ? `만개의레시피에서 "${name}" 열기 ↗` : `"${name}" 추천순으로 보기 ↗`;
+}
 
 /* ---------- 재료 등록 ---------- */
 function addItems(text){
@@ -477,7 +489,7 @@ function render(){
 
   // 링크
   const q = [...state.items, ...state.basics].slice(0,5).join(" ");
-  $("goMine").href = q ? SEARCH+encodeURIComponent(q) : "https://m.10000recipe.com/recipe/ingredients.html";
+  $("goMine").href = q ? SEARCH+encodeURIComponent(q)+"&order=reco" : "https://m.10000recipe.com/recipe/ingredients.html";
 
   // 보기 전환
   $("views").innerHTML = [["rec","🍽️ 추천 요리"],["scrap",`📌 내 스크랩 ${scraps.length}`]]
@@ -528,7 +540,7 @@ function render(){
         ${r.miss.map(i=>`<span class="chip miss">✗ ${esc(i)}</span>`).join("")}
         ${r.optional.map(i=>`<span class="chip opt">${esc(i)}</span>`).join("")}
       </div>
-      <a class="go" data-pn="${esc(r.name)}" href="${esc(recLink(r.name))}" target="_blank" rel="noopener">만개의레시피에서 "${esc(r.name)}" 보기 ↗</a>
+      <a class="go" data-pn="${esc(r.name)}" href="${esc(recLink(r.name))}" target="_blank" rel="noopener">${esc(recLabel(r.name))}</a>
     </article>`;
   });
 }
@@ -537,7 +549,7 @@ function render(){
 function scrapLink(s){
   if (s.url) return s.url;
   const t = /…|\.\.\.$/.test(s.title) ? (s.cat||s.title) : s.title;
-  return SEARCH + encodeURIComponent(t);
+  return SEARCH + encodeURIComponent(t) + "&order=reco";
 }
 function renderScraps(){
   const comp = new Map(compute().map(x=>[x.name,x]));
