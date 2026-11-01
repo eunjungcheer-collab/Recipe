@@ -133,17 +133,22 @@ input[type=text]{background:var(--apricot-l)}
 
   <section class="panel basicbox">
     <h2>🧺 기본 재료 <span style="font-weight:400;color:var(--sub);font-size:13px">(집에 늘 있는 재료)</span></h2>
-    <div class="row">
-      <input id="binp" type="text" list="dl" placeholder="예: 밥 계란 대파 양파 마늘" autocomplete="off">
-      <button class="btn" id="badd">저장</button>
-    </div>
-    <div class="hint">여기 등록한 재료는 항상 가지고 있는 것으로 계산해요. <b>재료 이름을 누르면 오늘은 없음(꺼짐)</b>, 다시 누르면 켜져요. 완전히 지우려면 아래 "삭제 편집"을 누르세요.</div>
-    <div class="chips" id="basics"></div>
-    <button class="btn ghost" id="bedit" type="button" style="margin-top:8px;font-size:13px;padding:6px 12px">✏️ 삭제 편집</button>
-    <details style="margin-top:10px">
-      <summary>자주 있는 재료에서 고르기</summary>
-      <div class="chips" id="bpicker"></div>
+    <details id="bdet">
+      <summary id="bsum">기본 재료 보기·수정</summary>
+      <div class="row" style="margin-top:10px">
+        <input id="binp" type="text" list="dl" placeholder="추가할 재료 (예: 밥 계란 대파)" autocomplete="off">
+        <button class="btn" id="badd">저장</button>
+      </div>
+      <div class="hint">항상 가지고 있는 것으로 계산해요. <b>이름을 누르면 오늘은 없음(꺼짐)</b>, 다시 누르면 켜져요. 완전히 지우려면 "삭제 편집"을 누르세요.</div>
+      <div class="chips" id="basics"></div>
+      <button class="btn ghost" id="bedit" type="button" style="margin-top:8px;font-size:13px;padding:6px 12px">✏️ 삭제 편집</button>
+      <details style="margin-top:10px">
+        <summary>자주 있는 재료에서 고르기</summary>
+        <div class="chips" id="bpicker"></div>
+      </details>
     </details>
+  
+    
   </section>
 
   <section class="panel">
@@ -637,6 +642,7 @@ function render(){
   $("basics").innerHTML = state.basics.length
     ? state.basics.map(n=>`<span class="chip mine ${state.basicsOff.includes(n)?"off":""}"><span data-boff="${esc(n)}" style="cursor:pointer">${esc(n)}</span>${state.bedit?`<button data-rmb="${esc(n)}" aria-label="삭제">×</button>`:""}</span>`).join("")
     : `<span class="hint">아직 등록한 기본 재료가 없어요.</span>`;
+  { const on=state.basics.filter(n=>!state.basicsOff.includes(n)).length, off=state.basicsOff.length; $("bsum").textContent = `기본 재료 ${on}개` + (off?` (오늘 없음 ${off}개)`:"") + " · 눌러서 보기/수정"; }
   $("bedit").textContent = state.bedit ? "✅ 편집 끝" : "✏️ 삭제 편집";
   $("seasonPick").innerHTML = SEASONINGS.map(n=>`<button class="chip pick ${state.staples.includes(n)?"on":""}" data-season="${esc(n)}">${esc(n)}</button>`).join("");
   $("bpicker").innerHTML = BASIC_PICK.map(n=>`<button class="chip pick ${state.basics.includes(n)?"on":""}" data-bpick="${esc(n)}">${esc(n)}</button>`).join("");
@@ -920,4 +926,4 @@ handleShare();
 render();
 </script>
 </body>
-</html>
+</html>v
